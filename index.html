@@ -1,0 +1,136 @@
+<html lang="en">
+<head>
+    <style>
+      
+body {
+    padding-top: 250px;
+  }
+.button {
+  border: blue;
+  text-align: center;
+  color: white;
+  border-radius: 4px;
+  height: 4%;
+
+}
+
+.button1 {
+  width: 20%;
+	background-color: RoyalBlue;
+}
+
+label {
+	width: 180px;
+	display:inline-block;
+	text-align: right;
+	vertical-align: top;
+
+  color: RoyalBlue;
+
+  font-family: Arial;
+
+}
+
+
+input{
+  width: 40%;
+  height: 4%;
+  border: solid 1px green;
+}
+
+textarea {
+  width:40%;
+  height: 20%;
+  resize: none;
+    border: solid 1px green;
+
+}
+
+fieldset {
+background: AntiqueWhite ;
+  border: 5px solid RoyalBlue;
+    border-radius: 25px;
+	margin-bottom:10px;
+	width: 400px;
+	margin: auto;
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+form
+{
+    text-align: center;
+}
+
+
+ 
+</style>
+</head>
+<body>
+  <form name="myForm" method="post" onsubmit="return validate()">
+    	<fieldset>
+        <label >First Name</label>
+        <input type="text" name="First Name" id="t1" placeholder="Fist Name" ><br><br>
+        <label>Last Name</label>
+        <input type="text" name="Last Name" id="t2" placeholder="Last Name"><br><br>
+    	<label>Email Address</label>
+    	<input id="t3" type="Email" name="Email Address" placeholder="Email Address"><br><br>
+        <label>Notes</label>
+        <textarea id="t4"></textarea><br> <br>
+        <label></label>
+        <button class="button button1" onclick="validate()">Register</button><br> <br>
+        <p id="p1" align="center"></p>
+        </fieldset>
+
+
+    
+</body>
+</html>
+
+
+<script>
+
+
+function validate() {
+  var firstName = document.forms["myForm"]["t1"].value;
+  var lastName = document.forms["myForm"]["t2"].value;
+  var email = document.forms["myForm"]["t3"].value;
+  var notes = document.forms["myForm"]["t4"].value;
+
+  if (!firstName.match(/\S/)) {
+        document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").innerHTML = "First Name cannot be empty";
+        return false;
+  }
+
+if (!lastName.match(/\S/)) {
+document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").innerHTML = "Last Name cannot be empty";
+            return false;
+  }
+
+  if (!email.match(/\S/)) {
+ document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").innerHTML = "Email cannot be empty";
+            return false;
+  }
+
+  if (!notes.match(/\S/)) {
+document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").innerHTML = "Notes cannot be empty";
+            return false;
+  }
+  else 
+    {
+      document.getElementById("p1").style.color = "green";
+      document.getElementById("p1").innerHTML = "Validation successful";
+                  return false;
+
+        
+    }
+ }
+</script>
+
+
+
